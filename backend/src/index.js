@@ -14,12 +14,11 @@ const PORT = process.env.PORT || 4000;
 
 app.use(helmet());
 app.use(cors({
-  origin: [
-    process.env.FRONTEND_URL || 'http://localhost:5173',
-    /\.vercel\.app$/
-  ],
-  credentials: true,
+  origin: '*',
+  methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization'],
 }));
+app.options('*', cors());
 app.use(express.json());
 
 app.use('/api/auth', rateLimit({ windowMs: 15 * 60 * 1000, max: 20 }));
@@ -39,4 +38,4 @@ app.use((err, req, res, _next) => {
   res.status(err.status || 500).json({ error: err.message || 'Erreur serveur' });
 });
 
-app.listen(PORT, () => console.log(`🚀 API Mundio → http://localhost:${PORT}`));
+app.listen(PORT, () => console.log('API Mundio -> http://localhost:' + PORT));
