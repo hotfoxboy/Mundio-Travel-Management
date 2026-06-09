@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy text-white font-sans;
+    min-height: 100vh;
+  }
+  * { box-sizing: border-box; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gold text-navy font-semibold px-5 py-2.5 rounded-lg text-sm
+           hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-outline {
+    @apply border border-gold text-gold font-semibold px-5 py-2.5 rounded-lg text-sm
+           hover:bg-gold hover:text-navy transition-colors;
+  }
+  .btn-ghost {
+    @apply text-gray-400 px-4 py-2 rounded-lg text-sm hover:bg-navy-light hover:text-white transition-colors;
+  }
+  .card {
+    @apply bg-surface border border-navy-border rounded-xl p-5;
+  }
+  .input {
+    @apply w-full bg-surface-3 border border-navy-border rounded-lg px-3 py-2.5 text-sm text-white
+           placeholder-gray-600 focus:outline-none focus:border-gold transition-colors;
+  }
+  .label {
+    @apply block text-xs text-gray-500 uppercase tracking-wider mb-1.5;
+  }
+  .badge-status {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .nav-link {
+    @apply flex items-center gap-2.5 px-4 py-2.5 text-gray-400 text-sm rounded-none
+           border-l-2 border-transparent hover:bg-navy-light hover:text-white transition-all cursor-pointer;
+  }
+  .nav-link.active {
+    @apply bg-gold/10 text-gold border-gold;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2A4360; border-radius: 2px; }
